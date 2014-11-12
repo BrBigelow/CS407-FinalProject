@@ -1,10 +1,10 @@
 package edu.ccsu.cs407.finalproject;
 
-public interface Factory 
+public interface PlantFactoryInterface 
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
 	 */
 	
-	public Organic create(String type);
+	public Plant create(String type);
 }

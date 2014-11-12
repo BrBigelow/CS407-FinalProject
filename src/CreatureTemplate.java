@@ -1,6 +1,6 @@
 package edu.ccsu.cs407.finalproject;
 
-public abstract class CreatureTemplate 
+public abstract class CreatureTemplate implements Creature
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling

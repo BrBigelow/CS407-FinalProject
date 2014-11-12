@@ -1,6 +1,6 @@
 package edu.ccsu.cs407.finalproject;
 
-public class Banshee extends CreatureTemplate implements Creature
+public class Banshee extends CreatureTemplate
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling

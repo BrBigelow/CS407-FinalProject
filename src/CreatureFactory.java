@@ -1,54 +1,40 @@
 package edu.ccsu.cs407.finalproject;
 
-public class CreatureFactory implements Factory 
+public class CreatureFactory implements CreatureFactoryInterface
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
 	 */
 	
-	//Predefined
-	public Organic create(String type)
+	public static CreatureFactory instance;
+	
+	public static CreatureFactory getInstance()
 	{
-		Creature creature;
-		MoveStrategy strat;
-		
-		if(type == "G")
+		if (instance == null)
 		{
-			strat = new Random();
-			creature = new Gargoyle(strat);
-		}
-		else if(type == "B")
-		{
-			strat = new Fight();
-			creature = new Banshee(strat);
-		}
-		else
-		{
-			//Default
-			strat = new Random();
-			creature = new Gargoyle(strat);
+			instance = new CreatureFactory();
+
 		}
 		
-		//Return the new creature
-		return creature;
+		return instance;
 	}
 	
-	//User defined
-	public Creature createCreature(String moveStrat, String creatureType)
+	//Predefined
+	public Creature create(String type, String move)
 	{
 		Creature creature;
 		MoveStrategy strat;
 		
 		//Set new move strategy
-		if(moveStrat == "Random")
+		if(move == "Random")
 		{
 			strat = new Random();
 		}
-		else if(moveStrat == "Fight")
+		else if(move == "Fight")
 		{
 			strat = new Fight();
 		}
-		else if(moveStrat == "Flight")
+		else if(move == "Flight")
 		{
 			strat = new Flight();
 		}
@@ -59,11 +45,11 @@ public class CreatureFactory implements Factory
 		}
 		
 		//Create Creature
-		if(creatureType == "G")
+		if(type == "G")
 		{
 			creature = new Gargoyle(strat);
 		}
-		else if(creatureType == "B")
+		else if(type == "B")
 		{
 			creature = new Banshee(strat);
 		}
@@ -76,4 +62,5 @@ public class CreatureFactory implements Factory
 		//Return the new creature
 		return creature;
 	}
+	
 }

@@ -9,10 +9,14 @@ public class CreatureFactoryTest {
 	@Test
 	public void test() 
 	{
-		FactorySingleton fs = FactorySingleton.getInstance();
 		
-		assertTrue(fs.getCreatureFactory().create("G") instanceof Gargoyle);
-		assertTrue(fs.getCreatureFactory().create("B") instanceof Banshee);
+		CreatureFactory cf = CreatureFactory.getInstance();
+		CreatureFactory cf2 = CreatureFactory.getInstance();
+		assertTrue(cf instanceof CreatureFactory);
+		assertTrue(cf == cf2);
+		
+		assertTrue(cf.create("G", "R") instanceof Gargoyle);
+		assertTrue(cf.create("B", "F") instanceof Banshee);
 	}
 
 }

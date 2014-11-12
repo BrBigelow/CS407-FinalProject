@@ -1,6 +1,6 @@
 package edu.ccsu.cs407.finalproject;
 
-public class RedPlant extends PlantTemplate implements Plant 
+public class RedPlant extends PlantTemplate
 {
 
 	/**
