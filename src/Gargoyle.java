@@ -1,6 +1,6 @@
 package edu.ccsu.cs407.finalproject;
 
-public class Gargoyle extends CreatureTemplate implements Creature 
+public class Gargoyle extends CreatureTemplate 
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling

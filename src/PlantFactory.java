@@ -1,12 +1,25 @@
 package edu.ccsu.cs407.finalproject;
 
-public class PlantFactory implements Factory 
+public class PlantFactory implements PlantFactoryInterface 
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
 	 */
 	
-	public Organic create(String type)
+	public static PlantFactory instance;
+	
+	public static PlantFactory getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new PlantFactory();
+
+		}
+		
+		return instance;
+	}
+	
+	public Plant create(String type)
 	{
 		Plant plant;
 		
@@ -26,12 +39,4 @@ public class PlantFactory implements Factory
 		return plant;
 	}
 	
-	//User defined
-	public Plant createPlant()
-	{
-		Plant plant = new BluePlant();
-		
-		return plant;
-	}
-
 }

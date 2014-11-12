@@ -6,12 +6,16 @@ public class Main
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
 	 */
 
-	FactorySingleton factory = FactorySingleton.getInstance();
-	Factory cFactory = factory.getCreatureFactory();
-	Factory pFactory = factory.getPlantFactory();
+	CreatureFactoryInterface cFactory = CreatureFactory.getInstance();
+	PlantFactoryInterface pFactory = PlantFactory.getInstance();
 	
-	public static void main(String[] args) 
+	
+	public void main(String[] args) 
 	{
+		Creature c1 = cFactory.create("G", "R");
+		Creature c2 = cFactory.create("B", "F");
+		Plant p1 = pFactory.create("R");
+		Plant p2 = pFactory.create("B");
 
 	}
 

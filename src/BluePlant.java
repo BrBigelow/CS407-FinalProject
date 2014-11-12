@@ -1,6 +1,6 @@
 package edu.ccsu.cs407.finalproject;
 
-public class BluePlant extends PlantTemplate implements Plant 
+public class BluePlant extends PlantTemplate
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling

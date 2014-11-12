@@ -9,10 +9,13 @@ public class PlantFactoryTest {
 	@Test
 	public void test() 
 	{
-		FactorySingleton fs = FactorySingleton.getInstance();
+		PlantFactory pf = PlantFactory.getInstance();
+		PlantFactory pf2 = PlantFactory.getInstance();
+		assertTrue(pf instanceof PlantFactory);
+		assertTrue(pf == pf2);
 		
-		assertTrue(fs.getPlantFactory().create("R") instanceof RedPlant);
-		assertTrue(fs.getPlantFactory().create("B") instanceof BluePlant);
+		assertTrue(pf.create("R") instanceof RedPlant);
+		assertTrue(pf.create("B") instanceof BluePlant);
 	}
 
 }
