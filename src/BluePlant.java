@@ -6,20 +6,25 @@ public class BluePlant extends PlantTemplate
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
 	 */
 	
+	
 	public BluePlant()
 	{
 		
 	}
 	
-	@Override
-	public void evolve() {
-		// TODO Auto-generated method stub
+	/**
+	 * Evolves a plant by swapping components or by adding decorators
+	 */
+	public void evolve() 
+	{
 		
 	}
 
-	@Override
-	public void sprout() {
-		// TODO Auto-generated method stub
+	/**
+	 * Plant sprouts new plants in adjacent board locations
+	 */
+	public void sprout() 
+	{
 		
 	}
 

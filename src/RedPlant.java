@@ -12,15 +12,19 @@ public class RedPlant extends PlantTemplate
 		
 	}
 	
-	@Override
-	public void evolve() {
-		// TODO Auto-generated method stub
+	/**
+	 * Evolves a plant by swapping components or by adding decorators
+	 */
+	public void evolve() 
+	{
 		
 	}
 
-	@Override
-	public void sprout() {
-		// TODO Auto-generated method stub
+	/**
+	 * Plant sprouts new plants in adjacent board locations
+	 */
+	public void sprout() 
+	{
 		
 	}
 

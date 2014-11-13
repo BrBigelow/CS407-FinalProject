@@ -6,17 +6,26 @@ public abstract class CreatureTemplate implements Creature
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
 	 */
 	
-	private int movePoints;
-	private int size;
-	private int health;
-	private int hunger;
-	private int numberOfOffspring;
+	protected int movePoints;
+	protected int size;
+	protected int health;
+	protected int hunger;
+	protected int numberOfOffspring;
 	
 	public int determineNumberOfOffspring(){}
 	
-	public void reproduce(){
+	/**
+	 * Create and place a duplicate of the current Creature based on its individual reproduction method
+	 */
+	public void reproduce()
+	{
 		numberOfOffspring = determineNumberOfOffspring();
+		copyCreature();
+		placeCreature();
 	}
+	
+	protected abstract void copyCreature();
+	protected abstract void placeCreature();
 	
 	public abstract void defend();
 	

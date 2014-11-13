@@ -6,30 +6,48 @@ public class Gargoyle extends CreatureTemplate
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
 	 */
 	
-MoveStrategy ms;
+	MoveStrategy ms;
 	
 	Gargoyle(MoveStrategy strat)
 	{
 		this.ms = strat;
 	}
 
-	@Override
-	public void evolve() {
-		// TODO Auto-generated method stub
+	/**
+	 * Evolves a creature by swapping components or by adding decorators
+	 */
+	public void evolve() 
+	{
 		
 	}
-
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
+	
+	/**
+	 * Moves according to its MoveStrategy and its movement points
+	 * @see MoveStrategy
+	 * @see CreatureTemplate
+	 */
+	public void move() 
+	{
 		
 	}
 	
 	public int determineNumberOfOffspring(){}
 
-	@Override
-	public void defend() {
-		// TODO Auto-generated method stub
+	/**
+	 * Defends against attack based off defensive ability from creature components
+	 */
+	public void defend()
+	{
+		
+	}
+
+	protected void copyCreature() 
+	{
+		
+	}
+
+	protected void placeCreature() 
+	{
 		
 	}
 }

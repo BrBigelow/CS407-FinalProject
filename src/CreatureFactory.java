@@ -6,8 +6,15 @@ public class CreatureFactory implements CreatureFactoryInterface
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
 	 */
 	
+	/**
+	 * Static Singleton instance of a CreatureFactory
+	 */
 	public static CreatureFactory instance;
 	
+	/**
+	 * Static method to return the instance of the CreatureFactory. If instance does not exist, creates it.
+	 * @return instance of CreatureFactory
+	 */
 	public static CreatureFactory getInstance()
 	{
 		if (instance == null)
@@ -19,7 +26,12 @@ public class CreatureFactory implements CreatureFactoryInterface
 		return instance;
 	}
 	
-	//Predefined
+	/**
+	 * Create a creature based off string inputs
+	 * @param type - The type of the Creature to create
+	 * @param move - The MoveStrategy to attach to the Creature
+	 * @return A new Creature
+	 */
 	public Creature create(String type, String move)
 	{
 		Creature creature;
