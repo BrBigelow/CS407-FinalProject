@@ -1,6 +1,6 @@
 package edu.ccsu.cs407.finalproject;
 
-public abstract class BodyComponent 
+public interface BodyComponent 
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public abstract class BodyComposite extends BodyComponent 
+public abstract class BodyComposite implements BodyComponent 
 {
 
 	/**

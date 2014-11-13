@@ -1,6 +1,6 @@
 package edu.ccsu.cs407.finalproject;
 
-public class StrongArm extends BodyComponent 
+public class StrongArm implements BodyComponent 
 {
 
 	/**

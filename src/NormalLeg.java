@@ -1,6 +1,6 @@
 package edu.ccsu.cs407.finalproject;
 
-public class NormalLeg extends BodyComponent 
+public class NormalLeg implements BodyComponent 
 {
 	/**
 	 * @author	Bryan Bigelow, Aaron Zamojski, Nick Artymiak, Joseph Boling
