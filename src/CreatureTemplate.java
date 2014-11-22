@@ -1,4 +1,4 @@
-package edu.ccsu.cs407.finalproject;
+package finalProject;
 
 public abstract class CreatureTemplate implements Creature
 {
@@ -12,14 +12,15 @@ public abstract class CreatureTemplate implements Creature
 	protected int hunger;
 	protected int numberOfOffspring;
 	
-	public int determineNumberOfOffspring(){}
+	//public int determineNumberOfOffspring(){
+	//}
 	
 	/**
 	 * Create and place a duplicate of the current Creature based on its individual reproduction method
 	 */
 	public void reproduce()
 	{
-		numberOfOffspring = determineNumberOfOffspring();
+		//numberOfOffspring = determineNumberOfOffspring();
 		copyCreature();
 		placeCreature();
 	}

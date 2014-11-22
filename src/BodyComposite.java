@@ -1,4 +1,4 @@
-package edu.ccsu.cs407.finalproject;
+package finalProject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,11 +38,13 @@ public abstract class BodyComposite implements BodyComponent
 	/**
 	 * Iterator for moving through an array list of body components
 	 * @return Iterator for an array list of type BodyComponent
-	 */
+	 
 	public Iterator<BodyComponent> iterator()
 	{
 		//Custom iterator
+
 	}
+	*/
 	
 	/**
 	 * Loops through composite components and sums the defensive strength

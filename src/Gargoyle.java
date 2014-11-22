@@ -1,4 +1,4 @@
-package edu.ccsu.cs407.finalproject;
+package finalProject;
 
 public class Gargoyle extends CreatureTemplate 
 {
@@ -31,7 +31,7 @@ public class Gargoyle extends CreatureTemplate
 		
 	}
 	
-	public int determineNumberOfOffspring(){}
+	//public int determineNumberOfOffspring(){}
 
 	/**
 	 * Defends against attack based off defensive ability from creature components

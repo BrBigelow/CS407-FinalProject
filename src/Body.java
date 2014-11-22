@@ -1,4 +1,4 @@
-package edu.ccsu.cs407.finalproject;
+package finalProject;
 
 public class Body extends BodyComposite 
 {

@@ -1,4 +1,4 @@
-package edu.ccsu.cs407.finalproject;
+package finalProject;
 
 public class Banshee extends CreatureTemplate
 {
@@ -31,7 +31,9 @@ public class Banshee extends CreatureTemplate
 		
 	}
 	
-	public int determineNumberOfOffspring(){}
+	public int determineNumberOfOffspring(){
+		return 0;
+	}
 
 	/**
 	 * Defends against attack based off defensive ability from creature components
