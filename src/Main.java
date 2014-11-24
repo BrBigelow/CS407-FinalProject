@@ -27,6 +27,8 @@ public class Main extends Application {
 	
 	SquareBuilder squareBuilder = new SquareBuilder();
 	SquareBuilderDirector director = new SquareBuilderDirector();
+	director.buildLand();
+	director.buildSea();
 	
 	
 	
@@ -64,17 +66,26 @@ public class Main extends Application {
 	    Rectangle[] squares = new Rectangle[2500];
 	   
 	   //Filled rectangle
-
+	    int count = 0;
 	     for(int i=0;i<50;i++){
 	    	 for(int j=0;j<50;j++){
-		    	 squares[i] = new Rectangle(i%50*40,j%50*40, 40, 40);
-		    	 
-		    	 if(j%2==1){
-		    		 squares[i].setFill(Color.LIGHTGREY);
-		    	 }else{
-		    		 squares[i].setFill(Color.WHITE);
+		    	 squares[i] = new Rectangle(i%50*20,j%50*20, 20, 20);
+		    	 	
+		    	 if(i%2==1){
+		    		 if(j%2==1){
+		    			 //squares[i].setFill(Color.rgb(i+150, j, i+j));
+		    			 squares[i].setFill(Color.LIGHTGREY);
+		    		 } else {
+		    			 squares[i].setFill(Color.WHITE);
+		    		 }
+		    	 } else {
+		    		 if(j%2==1){
+		    			 squares[i].setFill(Color.WHITE);
+		    		 }else {
+		    			 squares[i].setFill(Color.LIGHTGREY);
+		    		 }
 		    	 }
-		    	 
+		    	 count ++;
 		    
 		    	 root.getChildren().add(squares[i]);
 	    	 }
@@ -85,25 +96,3 @@ public class Main extends Application {
 	     primaryStage.show();
 	 }
 }
-
-/**
-public class Main 
-{
-
-	CreatureFactoryInterface cFactory = CreatureFactory.getInstance();
-	PlantFactoryInterface pFactory = PlantFactory.getInstance();
-	
-	
-	public void main(String[] args) 
-	{
-		Creature c1 = cFactory.create("G", "R");
-		Creature c2 = cFactory.create("B", "F");
-		Plant p1 = pFactory.create("R");
-		Plant p2 = pFactory.create("B");
-		
-		
-
-	}
-
-}
-**/
