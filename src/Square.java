@@ -1,19 +1,25 @@
 package finalProject;
 
+import finalProject.ListUtil;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Square representing a tile on the board
+ * 
+ */
 public class Square {
 	
 	private final String squareID;
-
-	private final Dirt dirt;
-	private final Grass grass;
-	private final Rock rock;
-	private final Sand sand;
-	private final Snow snow;
-	private final Sea sea;
-	private final Lake lake;
+	// must be one and only one of these
+	private  Dirt dirt;
+	private  Grass grass;
+	private  Rock rock;
+	private  Sand sand;
+	private  Sea sea;
+	private  Lake lake;
+	// optional
+	private  Snow snow;
 	private final List<Wave> waves;
 	private final List<Elevation> elevation;
 	private final List<DeepWater> deepWater;
@@ -21,27 +27,55 @@ public class Square {
 	
 	private Square(String squareID, SquareBuilder builder){
 		this.squareID = squareID;
-		dirt = builder.buildDirt();
-		grass = builder.buildGrass();
-		rock = builder.buildRock();
-		sand = builder.buildSand();
-		snow = builder.buildSnow();
+		dirt = builder.dirt;
+		grass = builder.grass;
+		rock = builder.rock;
+		sand = builder.sand;
+		sea = builder.sea;
+		lake = builder.lake;
+		snow = builder.snow;
 		waves = builder.buildWaves();
-		sea = builder.buildSea();
-		lake = builder.buildLake();
 		elevation = builder.buildElevation();
 		deepWater = builder.buildDeepWater();
 		clouds = builder.buildClouds();
 	}
 	
+	public String toString(){
+		String returnString = "["+squareID+" ";
+		returnString += "[waves "+ListUtil.listToString(waves)+"] ";
+		returnString += "[elevation "+ListUtil.listToString(elevation)+"] ";
+		returnString += "[deepWater "+ListUtil.listToString(deepWater)+"] ";
+		returnString += "[clouds "+ListUtil.listToString(clouds)+"] ";
+		if(dirt!=null){returnString += dirt.toString()+" ";}
+		if(grass!=null){returnString += grass.toString() + " ";}
+		if(rock!=null){returnString += rock.toString()+" ";}
+		if(sand!=null){returnString += sand.toString() + " ";}
+		if(sea!=null){returnString += sea.toString()+" ";}
+		if(lake!=null){returnString += lake.toString() + " ";}
+		if(snow!=null){returnString += snow.toString()+" ";}
+		return returnString + "]";
+	}
+	
+	/**
+	 * Builds a Square object out of the basic elements needed to build any type of square
+	 * The methods in this class are called by a SquareBuilderDirector object
+	 * After the SquareBuilderDirector has finished executing, the class that called SquareBuilderDirector
+	 * should call SquareBuilder.build() which returns an instance of the square.
+	 * Used by the SquareBuilderDirector
+	 * @see SquareBuilderDirector 
+	 * @see Square
+	 */
+	
 	public static class SquareBuilder {
-		private boolean dirtBool = false;
-		private boolean grassBool = false;
-		private boolean rockBool = false;
-		private boolean sandBool = false;
-		private boolean snowBool = false;
-		private boolean seaBool = false;
-		private boolean lakeBool = false;
+		
+		private  Dirt dirt = null;
+		private  Grass grass = null;
+		private  Rock rock = null;
+		private  Sand sand = null;
+		private  Sea sea = null;
+		private  Lake lake = null;
+
+		private  Snow snow = null;
 		private int numWaves;
 		private int numElevation;
 		private int numDeepWater;
@@ -54,53 +88,38 @@ public class Square {
 		// internal builder functionality
 		
 	    private Dirt buildDirt() {
-	    	
-	    	if (dirtBool == true){
-	    		Dirt dirt = new Dirt();
-	    		return dirt;
-	    	}
+	    	Dirt dirt = new Dirt();
+	    	return dirt;
 	    }
 	    
 	    private Grass buildGrass() {
-	    	if(grassBool == true){
-	    		Grass grass = new Grass();
-	    		return grass;
-	    	}
+	    	Grass grass = new Grass();
+	    	return grass;
 	    }
 	    
 	    private Rock buildRock() {
-	    	if(rockBool == true){
-		    	Rock rock = new Rock();
-		        return rock;
-	    	}
+		    Rock rock = new Rock();   
+	    	return rock;
 	    }
 	    
 	    private Sand buildSand() {
-	    	if(sandBool == true){
-		    	Sand sand = new Sand();
-		    	return sand;
-	    	}
+		    Sand sand = new Sand();
+	    	return sand;
 	    }
 	    
 	    private Snow buildSnow() {
-	    	if(snowBool == true){
-		    	Snow snow = new Snow();
-		    	return snow;
-		    }
+		    Snow snow = new Snow();
+	    	return snow;
 	    }
 	    
 	    private Sea buildSea() {
-	    	if(seaBool == true){
-	    		Sea sea = new Sea();
-	    		return sea;
-	    	}
+	    	Sea sea = new Sea();
+	    	return sea;
 	    }
 	    
 	    private Lake buildLake() {
-	    	if(lakeBool == true){
-	    		Lake lake = new Lake();
-	    		return lake;
-	    	}
+	    	Lake lake = new Lake();
+	    	return lake;
 	    }
 	    
 	    private List<Elevation> buildElevation(){
@@ -140,37 +159,37 @@ public class Square {
 	    	    
 	    //external builder functionality
 	    public SquareBuilder makeDirt() {
-	        this.dirtBool = true;
+	       this.dirt=buildDirt();
 	        return this;
 	    }
 	    
 	    public SquareBuilder makeGrass() {
-	        this.grassBool = true;
+	        this.grass=buildGrass();
 	        return this;
 	    }
 	    
 	    public SquareBuilder makeRock() {
-	        this.rockBool = true;
+	        this.rock=buildRock();
 	        return this;
 	    }
 	    
 	    public SquareBuilder makeSand() {
-	        this.sandBool = true;
+	        this.sand=buildSand();
 	        return this;
 	    }
 	    
-	    public SquareBuilder makeSnow() {
-	        this.snowBool = true;
+	    public SquareBuilder addSnow() {
+	        this.snow=buildSnow();
 	        return this;
 	    }
 	    
 	    public SquareBuilder makeSea() {
-	        this.seaBool = true;
+	        this.sea=buildSea();
 	        return this;
 	    }
 	    
 	    public SquareBuilder makeLake() {
-	        this.lakeBool = true;
+	       	this.lake=buildLake();
 	        return this;
 	    }
 	    
@@ -195,4 +214,5 @@ public class Square {
 	    }
 
 	}
+	
 }
